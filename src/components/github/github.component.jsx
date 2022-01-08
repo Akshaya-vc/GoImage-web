@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./github.styles.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import Button from "@mui/material/Button";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -14,6 +16,9 @@ import {
 // import SampleImg from "../../assets/home/home-illustration.jpg";
 
 function Github() {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   //   const [image, setImage] = useState(Illustration);
   const [username, setusername] = useState("");
   const [file, setFile] = useState("");
@@ -25,7 +30,7 @@ function Github() {
   const [invalidFile, setInvalidFile] = useState({});
   const [invalidRepo, setInvalidRepo] = useState({});
   const [outputURL, setOutputURL] = useState(
-    "https://media.istockphoto.com/photos/hot-air-balloons-with-landscape-mountain-picture-id1141810286?k=20&m=1141810286&s=612x612&w=0&h=LjwaFPtDGSrM10tVKqQ20F2i4Lx6VLsaYUqMeLXvwj0="
+    "https://c4.wallpaperflare.com/wallpaper/764/505/66/baby-groot-4k-hd-superheroes-wallpaper-preview.jpg"
   );
   const handleURL = (e) => {
     const { value } = e.target;
@@ -78,9 +83,6 @@ function Github() {
         `${process.env.REACT_APP_BACKEND_URL}/${route}/${username}${repoRoute}/${file}`
       );
     }
-    console.log(
-      `${process.env.REACT_APP_BACKEND_URL}/${route}/${username}${repoRoute}/${file}`
-    );
   };
   const handleChecked = () => {
     setChecked(!checked);
@@ -111,7 +113,7 @@ function Github() {
     );
   }
   return (
-    <div className="github">
+    <div className="github" data-aos="fade-up">
       <div className="github-right">
         <div className="github-heading">
           Lightening fast with Github! <GitHubIcon color="black" />
@@ -184,7 +186,12 @@ function Github() {
           </div>
         </div>
       </div>
-      <img src={outputURL} alt="" className="github-left github-img" />
+      <img
+        src={outputURL}
+        alt=""
+        className="github-left github-img"
+        data-aos="fade-left"
+      />
     </div>
   );
 }

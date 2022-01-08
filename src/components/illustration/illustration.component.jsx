@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./illustration.styles.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import Button from "@mui/material/Button";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import InsertLinkIcon from "@mui/icons-material/InsertLink";
@@ -12,11 +14,7 @@ import {
   IconButton,
 } from "@mui/material";
 
-// import fetchURL from "../../api/process";
-// import SampleImg from "../../assets/home/home-illustration.jpg";
-
 function Illustration() {
-  //   const [image, setImage] = useState(Illustration);
   const [inputURL, setInputURL] = useState("");
   const [tested, setTested] = useState(false);
   const [trial, setTrial] = useState(0);
@@ -26,6 +24,13 @@ function Illustration() {
   const [rot, setRotation] = useState("");
   const [quality, setQuality] = useState("");
   const [format, setFormat] = useState("jpeg");
+  const [invalidURL, setInvalidURL] = useState({});
+  const [outputURL, setOutputURL] = useState(
+    "https://media.istockphoto.com/photos/hot-air-balloons-with-landscape-mountain-picture-id1141810286?k=20&m=1141810286&s=612x612&w=0&h=LjwaFPtDGSrM10tVKqQ20F2i4Lx6VLsaYUqMeLXvwj0="
+  );
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   const formatOptions = [
     {
       value: "jpeg",
@@ -40,17 +45,11 @@ function Illustration() {
       label: "bmp",
     },
   ];
-  const handleChange = (event) => {
+
+  const handleFormat = (event) => {
     setFormat(event.target.value);
   };
-  console.log(inputURL);
-  const [invalidURL, setInvalidURL] = useState({});
-  //   const [image, setImage] = useState(
-  //     "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Fwallpaper%2F&psig=AOvVaw11ccCX6Hksbj41t7OIybcW&ust=1641730687735000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIinicWRovUCFQAAAAAdAAAAABAD"
-  //   );
-  const [outputURL, setOutputURL] = useState(
-    "https://media.istockphoto.com/photos/hot-air-balloons-with-landscape-mountain-picture-id1141810286?k=20&m=1141810286&s=612x612&w=0&h=LjwaFPtDGSrM10tVKqQ20F2i4Lx6VLsaYUqMeLXvwj0="
-  );
+
   const handleURL = (e) => {
     const { value } = e.target;
     invalidURL.status = false;
@@ -87,6 +86,15 @@ function Illustration() {
     );
     return true;
   };
+
+  const handleRandom = () => {
+    setRandom(!random);
+    if (!random) {
+      invalidURL.status = false;
+      invalidURL.helper = "";
+      setInvalidURL({ ...invalidURL });
+    }
+  };
   const handleSubmit = () => {
     if (validate()) {
       setTested(true);
@@ -96,14 +104,7 @@ function Illustration() {
     );
     setTrial(trial + 1);
   };
-  const handleRandom = () => {
-    setRandom(!random);
-    if (!random) {
-      invalidURL.status = false;
-      invalidURL.helper = "";
-      setInvalidURL({ ...invalidURL });
-    }
-  };
+
   // eslint-disable-next-line react/no-unstable-nested-components
   function OutputContainer() {
     return (
@@ -123,12 +124,14 @@ function Illustration() {
       </div>
     );
   }
+
   return (
-    <div className="illustration">
+    <div className="illustration" id="illustration-id" data-aos="fade-up">
       <img
         src={outputURL}
         alt=""
         className="illustration-left illustration-img"
+        data-aos="fade-right"
       />
       <div className="illustration-right">
         <div className="illustration-heading">
@@ -190,7 +193,7 @@ function Illustration() {
             select
             label="Select"
             value={format}
-            onChange={handleChange}
+            onChange={handleFormat}
           >
             {formatOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
