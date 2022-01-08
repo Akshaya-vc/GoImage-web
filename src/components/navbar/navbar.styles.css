@@ -1,0 +1,22 @@
+.navbar,
+.nav-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navbar {
+  justify-content: space-between;
+  padding: 2vh 3vw;
+  height: 40px;
+}
+
+.nav-left {
+  font-size: 2.8rem;
+  font-family: Mistral;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.nav-right div {
+  padding-right: 3vw;
+}

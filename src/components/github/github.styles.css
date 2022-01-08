@@ -1,0 +1,64 @@
+.github {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  justify-content: space-between;
+  margin: 5vh 0 2vh 0;
+}
+.github-img {
+  width: 40%;
+}
+.github-right,
+.github-right {
+  align-items: center;
+}
+.github-right {
+  padding: 0 5vw;
+}
+
+.github-heading {
+  font-family: Poppins, "serif";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 10vh 0 2vh 0;
+}
+.github-subtext {
+  /* font-size: 1.2rem; */
+  margin: 3vh 0 2vh 0;
+}
+.dashboard {
+  /* text-align: center !important; */
+}
+.format {
+  width: 80px;
+}
+.input-url {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.dashboard-row {
+  display: flex !important;
+  align-items: center !important;
+  /* justify-content: space-between !important; */
+}
+.dashboard-option {
+  margin: 3vh 3vw 2vh 0 !important;
+}
+.github-submit {
+  display: flex !important;
+  flex-direction: column !important;
+  margin: 2vh auto 1vh auto !important;
+}
+.output {
+  background-color: rgb(242, 240, 240);
+  /* border: 1px solid rgb(156, 156, 156); */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2vw;
+  border-radius:"25%";
+}
+.copy-btn{
+
+}

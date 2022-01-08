@@ -1,0 +1,29 @@
+.hero-container {
+  display: flex;
+  flex-direction: row;
+}
+.hero-left {
+  padding: 2% 5%;
+  text-align: left;
+}
+
+.hero-left div {
+  padding: 2% 0;
+}
+.hero-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.hero-heading {
+  font-family: Poppins, "serif";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 3.5rem;
+}
+
+.hero-right {
+  width: 50%;
+}
+
+
