@@ -100,7 +100,7 @@ function Illustration() {
       setTested(true);
     }
     setOutputURL(
-      `${process.env.REACT_APP_BACKEND_URL}/?img=${inputURL}&w=${width}&h=${height}&rot=${rot}&f=${format}&q=${quality}`
+      `http://www.goimg.me/?img=${inputURL}&w=${width}&h=${height}&rot=${rot}&f=${format}&q=${quality}`
     );
     setTrial(trial + 1);
   };

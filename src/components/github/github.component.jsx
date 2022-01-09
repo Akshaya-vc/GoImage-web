@@ -76,11 +76,11 @@ function Github() {
     const repoRoute = checked ? `/${repo}` : "";
     if (validate()) {
       setOutputURL(
-        `${process.env.REACT_APP_BACKEND_URL}/${route}/${username}${repoRoute}/${file}`
+        `http://www.goimg.me/${route}/${username}${repoRoute}/${file}`
       );
       setTested(true);
       console.log(
-        `${process.env.REACT_APP_BACKEND_URL}/${route}/${username}${repoRoute}/${file}`
+        `http://www.goimg.me/${route}/${username}${repoRoute}/${file}`
       );
     }
   };

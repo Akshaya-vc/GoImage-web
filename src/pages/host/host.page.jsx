@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import "./host.styles.css";
 import Aos from "aos";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { IconButton } from "@mui/material";
 import "aos/dist/aos.css";
 import CheckList from "../../assets/host/checklist.svg";
+
 import CodeWindow from "../../assets/host/Placeholder.svg";
 
 const useCaseLIST = [
@@ -41,6 +44,17 @@ function HostPage() {
         <div className="selfhost-guide-right">
           <div className="selfhost-guide-heading">Handle images with ease</div>
           {Points()}
+          <IconButton
+            color="primary"
+            aria-label="upload picture"
+            component="span"
+            className="copy-btn"
+            onClick={() => {
+              navigator.clipboard.writeText("ans29hul/goimg1:latest");
+            }}
+          >
+            <ContentCopyIcon />
+          </IconButton>
         </div>
       </div>
     </div>
