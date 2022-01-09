@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Go Image 
+Host Images for free via your Github and get pretty easy to remember links to use it wherever you want.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Interactive Link Generator](https://go-image-8la.pages.dev/)
 
-## Available Scripts
+[Demo Page Repo](https://github.com/Akshaya-vc/GoImage-web)
 
-In the project directory, you can run:
+[GoImage Server Repo](https://github.com/anshulagx/GoImage)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Self Host
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can self-host this microservice in your infra using Docker to enable advanced features such as Image caching.
+```bash
+docker pull ans29hul/goimg1:latest
+```
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Generate GitHub Image Links
+Create a repo called **goimg** and push all your images to the **main** branch, then use the link as shown to access them directly. 
+```
+http://goimg.me/g/<user_name>/<filename>
+```
 
-### `npm run build`
+Example: <http://goimg.me/g/anshulagx/a.png>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
+#### Generate GitHub Image Links for a specific repo
+```
+http://goimg.me/gr/<user_name>/<repo_name>/<filename>
+```
+Example: <http://goimg.me/gr/anshulagx/goimg/a.png/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
+#### Get Images and format them via URL
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+List of valid Query params
 
-### `npm run eject`
+ **Query Param** | **Description** | **Values**   
+-----------------|-----------------|--------------
+ w               | Width           | in px        
+ h               | Height          | in px        
+ rot             | Rotation        | in degrees   
+ b               | Blur            | true/false   
+ f               | Image format    | jpeg/png/bmp 
+ q               | Quality         | 0\-100       
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+http://www.goimg.me/?img=<url>&w=<width>....
+```
+Example: <http://www.goimg.me/?img=https://images.unsplash.com/photo-1640132090233-8c418da50822?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0MTcxNDczMw&ixlib=rb-1.2.1&w=200&h=200&f=png>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
+#### Generate a Random Image
+```
+http://www.goimg.me/
+```
+Example: <http://www.goimg.me>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Please make sure to update tests as appropriate.

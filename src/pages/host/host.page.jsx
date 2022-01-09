@@ -9,7 +9,7 @@ import CheckList from "../../assets/host/checklist.svg";
 import CodeWindow from "../../assets/host/Placeholder.svg";
 
 const useCaseLIST = [
-  { id: 1, text: "Dockerised cointainer for deployment" },
+  { id: 1, text: "Dockerised container for deployment" },
   { id: 2, text: "Image cacheing for faster load and bandwidth reduction" },
   { id: 3, text: "Too large? Try out the compression!" },
   { id: 4, text: "A all in one place to host images and link alias" },
@@ -44,17 +44,25 @@ function HostPage() {
         <div className="selfhost-guide-right">
           <div className="selfhost-guide-heading">Handle images with ease</div>
           {Points()}
-          <IconButton
-            color="primary"
-            aria-label="upload picture"
-            component="span"
-            className="copy-btn"
-            onClick={() => {
-              navigator.clipboard.writeText("ans29hul/goimg1:latest");
-            }}
-          >
-            <ContentCopyIcon />
-          </IconButton>
+          <div className="output">
+            <div className="output-link">
+              docker pull ans29hul/goimg1:latest
+            </div>
+
+            <IconButton
+              color="primary"
+              aria-label="upload picture"
+              component="span"
+              className="copy-btn"
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  "docker pull ans29hul/goimg1:latest"
+                );
+              }}
+            >
+              <ContentCopyIcon />
+            </IconButton>
+          </div>
         </div>
       </div>
     </div>
